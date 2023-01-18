@@ -13,9 +13,9 @@ class StudentController extends Controller
         return response()->json($student);
     }
 
-    public function searchStudent()
+    public function searchStudent($name)
     {
-        $search_student = Student::where('name','like','%' .$name. '%');
+        $search_student = Student::where('name','like','%' .$name. '%')->first();
         if($search_student)
         {
             return 'student is here';
